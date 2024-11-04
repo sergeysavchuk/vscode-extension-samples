@@ -68,6 +68,11 @@ connection.onInitialize((params: InitializeParams) => {
 		result.capabilities.workspace = {
 			workspaceFolders: {
 				supported: true
+			},
+			fileOperations: {
+				didRename: {
+					filters: [{ pattern: { glob: '**/*.clientrc', matches: 'file' }}]
+				}
 			}
 		};
 	}
